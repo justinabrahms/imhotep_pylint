@@ -1,5 +1,5 @@
 from imhotep.tools import Tool
-from collections import defaultdict
+import os
 import re
 
 class PyLint(Tool):
