@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='imhotep_pylint',
-    version='0.0.1',
+    version='0.0.2',
     packages=find_packages(),
     url='https://github.com/justinabrahms/imhotep_pylint',
     license='MIT',
