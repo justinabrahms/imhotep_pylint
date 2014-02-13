@@ -24,7 +24,7 @@ class PyLint(Tool):
             filename = os.path.abspath(filename)
             return filename, line, messages
 
-    def get_command(self, dirname):
+    def get_command(self, dirname, **kwargs):
         cmd = 'pylint --output-format=parseable -rn'
         if os.path.exists(os.path.join(dirname, self.pylintrc_filename)):
             cmd += " --rcfile=%s" % os.path.join(

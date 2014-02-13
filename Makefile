@@ -1,2 +1,2 @@
 upload:	
-	python setup.py bdist sdist upload
+	python setup.py sdist upload
