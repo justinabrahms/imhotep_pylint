@@ -7,6 +7,8 @@ class PyLint(Tool):
                                  '(?P<message>.*)')
     pylintrc_filename = '.pylintrc'
 
+    configs = ('.pylintrc', 'pylintrc')
+
     def get_file_extensions(self):
         return ['.py']
 
@@ -26,7 +28,9 @@ class PyLint(Tool):
 
     def get_command(self, dirname, **kwargs):
         cmd = 'pylint --output-format=parseable -rn'
-        if os.path.exists(os.path.join(dirname, self.pylintrc_filename)):
-            cmd += " --rcfile=%s" % os.path.join(
-                dirname, self.pylintrc_filename)
+        for config in self.configs:
+            if os.path.exists(os.path.join(dirname, self.pylintrc_filename)):
+                cmd += " --rcfile=%s" % os.path.join(
+                    dirname, self.pylintrc_filename)
+                continue
         return cmd
